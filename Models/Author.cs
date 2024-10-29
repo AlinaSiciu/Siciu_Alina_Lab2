@@ -10,7 +10,10 @@ namespace Siciu_Alina_Lab2.Models
         public ICollection<Book>? Books { get; set; }
         public string FullName
         {
-            get { return $"{FirstName} {LastName}"; }
+            get 
+            {
+                return $"{FirstName} {LastName}"; 
+            }
         }
     }
 }

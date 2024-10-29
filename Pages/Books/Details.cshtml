@@ -38,17 +38,22 @@
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Book.BookCategories)
         </dt>
-       
         <dd class="col-sm-10">
-            @{
-                 foreach (var category in Model.BookCategory)
-                 {
-                     <div>
-                         @category.Category.ID: @category.Category.CategoryName <br />
-                     </div>
-                 }
-             }
+            @if (Model.Categories != null && Model.Categories.Any())
+            {
+                <ul>
+                    @foreach (var category in Model.Categories)
+                    {
+                        <li>@category.CategoryName</li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p>No categories available for this book.</p>
+            }
         </dd>
+
     </dl>
 </div>
 <div>
