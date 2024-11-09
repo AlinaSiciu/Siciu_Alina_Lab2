@@ -31,11 +31,11 @@ namespace Siciu_Alina_Lab2.Pages.Books
                 return NotFound();
             }
 
-            var book = await _context.Book
-                .Include(b => b.Author)
-                .Include(b => b.BookCategories)
-                .ThenInclude(bc => bc.Category)
-                .FirstOrDefaultAsync(m => m.ID == id);
+            var book = await _context.Book.
+                Include(b => b.Author).
+                Include(b => b.Publisher).
+                Include(b => b.BookCategories).ThenInclude(bc => bc.Category).
+                FirstOrDefaultAsync(m => m.ID == id);
 
 
             if (book == null)
